@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <a asp-action="Index" asp-controller="Home"><img id="logotype" src="~/img/wahlgren_logo.png" alt="Wahlgren"></a>
+        <nav id="main_navigation_bar">
+            <ul>
+                <li>
+                    <a asp-action="Index" asp-controller="Home">Home</a>
+                </li>
+                <li>
+                    <a asp-action="Contact" asp-controller="Home">Contact</a>
+                </li>
+                <li>
+                    <a asp-action="Projects" asp-controller="Home">Projects</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr />
+
+    <div id="view_div">
+        @RenderBody()
+    </div>
+
+    <hr />
+
+    <footer>
+        <!--Current date as an object and name-->
+        <p>&copy;Philip Wahlgren @DateTime.Now.ToShortDateString()</p>
+    </footer>
+</body>
+</html>
