@@ -35,6 +35,7 @@ namespace MVC_Basics
             app.UseEndpoints(endpoints =>
             {
                 // Custom/special routes before default
+            //    endpoints.MapControllerRoute("FeverCheck", "{controller=Home}/{action=FeverCheck}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 /*
                 endpoints.MapGet("/", async context =>

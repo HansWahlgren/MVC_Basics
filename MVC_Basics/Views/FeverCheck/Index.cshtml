@@ -1,0 +1,14 @@
+﻿@using MVC_Basics.Models
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>FeverCheck</h1>
+<p>Type your temperature</p>
+
+<form asp-action="Index" asp-controller="FeverCheck" method="post">
+    <input type="text" name="userInput" value="" placeholder="Temperature" />
+    <span>@ViewBag.FeverResult</span>
+
+    <input type="submit" value="Save" />
+
+</form>
