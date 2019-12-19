@@ -9,11 +9,14 @@ namespace MVC_Basics.Controllers
 {
     public class FeverCheckController : Controller
     {
+        [Route("FeverCheck")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Route("FeverCheck")]
         [HttpPost]
         public IActionResult Index(string userInput)
         {

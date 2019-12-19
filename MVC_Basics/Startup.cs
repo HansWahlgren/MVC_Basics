@@ -16,7 +16,22 @@ namespace MVC_Basics
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();  //add MVC so we can use it
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+            //    options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            //add MVC so we can use it
+            services.AddMvc();
+
+            //services.AddMvc(options =>
+            //{
+            //    options.EnableEndpointRouting = false;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,20 +44,29 @@ namespace MVC_Basics
 
             //app.UseDefaultFiles();  //Looks for index.html or default.html
             app.UseStaticFiles();   //default opens up the wwwroot folder to be accessed
-
+            app.UseSession();
             app.UseRouting();
+
+            // MVC routing instead of Endpoints
+            //app.UseMvc(routes =>
+            //{
+            //    //  routes.MapRoute("testing", "{controller=GuessingGame}/{action=Index}/{id?}");
+            //    routes.MapRoute("blog", "blog/{*article}",
+            //        defaults: new { controller = "GuessingGame", action = "Index" });
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            //});
 
             app.UseEndpoints(endpoints =>
             {
                 // Custom/special routes before default
-            //    endpoints.MapControllerRoute("FeverCheck", "{controller=Home}/{action=FeverCheck}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-                /*
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-                */
+
+                //    /*
+                //    endpoints.MapGet("/", async context =>
+                //    {
+                //        await context.Response.WriteAsync("Hello World!");
+                //    });
+                //    */
             });
         }
     }

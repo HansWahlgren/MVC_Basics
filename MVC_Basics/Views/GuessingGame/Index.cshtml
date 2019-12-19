@@ -1,0 +1,16 @@
+﻿@using MVC_Basics.Models;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Guessing Game</h1>
+<p>Guess a number between 1-100</p>
+
+<form asp-action="Index" asp-controller="GuessingGame" method="post">
+    <input type="text" name="userInput" value="" placeholder="Your guess" />
+    <span>@ViewBag.guessResult</span>
+
+    <input type="submit" value="Guess" />
+
+</form>
+
