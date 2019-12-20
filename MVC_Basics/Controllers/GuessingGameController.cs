@@ -10,7 +10,6 @@ namespace MVC_Basics.Controllers
 {
     public class GuessingGameController : Controller
     {
-    //    [Route("GuessingGame")]
         [HttpGet]
         public IActionResult Index()
         {
@@ -19,7 +18,6 @@ namespace MVC_Basics.Controllers
             return View();
         }
 
-     //   [Route("GuessingGame")]
         [HttpPost]
         public IActionResult Index(string userInput)
         {
