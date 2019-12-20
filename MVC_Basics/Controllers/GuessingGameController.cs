@@ -10,15 +10,16 @@ namespace MVC_Basics.Controllers
 {
     public class GuessingGameController : Controller
     {
-        [Route("GuessingGame")]
+    //    [Route("GuessingGame")]
         [HttpGet]
         public IActionResult Index()
         {
             HttpContext.Session.SetInt32(SessionModel.SessionRandom_Number, CheckGuess.CreateNumber());
+            HttpContext.Session.SetInt32(SessionModel.Session_Guesses, 0);
             return View();
         }
 
-        [Route("GuessingGame")]
+     //   [Route("GuessingGame")]
         [HttpPost]
         public IActionResult Index(string userInput)
         {
@@ -29,6 +30,12 @@ namespace MVC_Basics.Controllers
                     int? userNumber = int.Parse(userInput);
                     int? randomNumber = HttpContext.Session.GetInt32(SessionModel.SessionRandom_Number);
                     string guessResult = CheckGuess.CompareGuess(userNumber, randomNumber);
+
+
+                    int guesses = HttpContext.Session.GetInt32(SessionModel.Session_Guesses).Value + 1;
+                    ViewBag.guesses = guesses;
+                    HttpContext.Session.SetInt32(SessionModel.Session_Guesses, guesses);
+
 
                     switch (guessResult)
                     {
@@ -41,6 +48,7 @@ namespace MVC_Basics.Controllers
                         case "correct":
                             ViewBag.guessResult = "Your guess was correct! Guess the new number!";
                             HttpContext.Session.SetInt32(SessionModel.SessionRandom_Number, CheckGuess.CreateNumber());
+                            HttpContext.Session.SetInt32(SessionModel.Session_Guesses, 0);
                             break;
                     }
                 }

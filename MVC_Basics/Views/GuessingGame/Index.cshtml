@@ -5,6 +5,7 @@
 
 <h1>Guessing Game</h1>
 <p>Guess a number between 1-100</p>
+<span>Number of guesses: @ViewBag.guesses</span>
 
 <form asp-action="Index" asp-controller="GuessingGame" method="post">
     <input type="text" name="userInput" value="" placeholder="Your guess" />

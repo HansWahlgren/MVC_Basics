@@ -4,7 +4,14 @@
 <h1>FeverCheck</h1>
 <p>Type your temperature</p>
 
+
 <form asp-action="Index" asp-controller="FeverCheck" method="post">
+    <label>
+        Celsius <input type="radio" checked="checked" name="tempChoice" value="celsius">
+    </label>
+    <label>
+        Fahrenheit <input type="radio" name="tempChoice" value="fahrenheit">
+    </label>
     <input type="text" name="userInput" value="" placeholder="Temperature" />
     <span>@ViewBag.FeverResult</span>
 

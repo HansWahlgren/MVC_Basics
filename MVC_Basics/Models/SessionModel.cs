@@ -10,5 +10,7 @@ namespace MVC_Basics.Models
         public const string SessionKeyName = "GameSession";
 
         public static string SessionRandom_Number = "Randomnumber";
+
+        public static string Session_Guesses = "Guesses";
     }
 }

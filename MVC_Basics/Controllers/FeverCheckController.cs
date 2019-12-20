@@ -9,23 +9,23 @@ namespace MVC_Basics.Controllers
 {
     public class FeverCheckController : Controller
     {
-        [Route("FeverCheck")]
+    //    [Route("FeverCheck")]
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Route("FeverCheck")]
+    //    [Route("FeverCheck")]
         [HttpPost]
-        public IActionResult Index(string userInput)
+        public IActionResult Index(string userInput, string tempChoice)
         {
             if (userInput != null)
             {
                 try
                 {
                     float temperature = float.Parse(userInput);
-                    ViewBag.FeverResult = CheckFever.CalculateFever(temperature);
+                    ViewBag.FeverResult = CheckFever.CalculateFever(temperature, tempChoice);
                 }
                 catch (Exception)
                 {

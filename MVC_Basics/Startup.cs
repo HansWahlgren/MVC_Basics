@@ -58,6 +58,10 @@ namespace MVC_Basics
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("GuessRoute", "GuessingGame",
+                        defaults: new { controller = "GuessingGame", action = "Index" });
+                endpoints.MapControllerRoute("FeverRoute", "FeverCheck",
+                       defaults: new { controller = "FeverCheck", action = "Index" });
                 // Custom/special routes before default
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 

@@ -7,8 +7,12 @@ namespace MVC_Basics.Models
 {
     public class CheckFever
     {
-        public static string CalculateFever(float temperature)
+        public static string CalculateFever(float temperature, string tempChoice)
         {
+            if (tempChoice == "fahrenheit")
+            {
+                temperature = (temperature - 32) * 5/9;
+            }
             if (temperature > 46 || temperature < 20 )
             {
                 return "You are dead!";
