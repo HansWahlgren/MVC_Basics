@@ -62,6 +62,8 @@ namespace MVC_Basics
                         defaults: new { controller = "GuessingGame", action = "Index" });
                 endpoints.MapControllerRoute("FeverRoute", "FeverCheck",
                        defaults: new { controller = "FeverCheck", action = "Index" });
+                endpoints.MapControllerRoute("PeopleRoute", "People",
+                      defaults: new { controller = "People", action = "Index" });
                 // Custom/special routes before default
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
