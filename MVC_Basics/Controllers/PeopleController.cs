@@ -9,10 +9,24 @@ namespace MVC_Basics.Controllers
 {
     public class PeopleController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
         //    return View(PersonViewModel.personList);
             return View(Person.personList);
+        }
+
+        [HttpPost]
+        public IActionResult Index(string userInput)
+        {
+            if (userInput != null)
+            {
+                return View(Person.FilterPeople(userInput));
+            }
+            else
+            {
+                return View(Person.personList);
+            }
         }
 
         [HttpGet]

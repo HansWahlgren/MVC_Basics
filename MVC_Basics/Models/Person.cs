@@ -25,9 +25,18 @@ namespace MVC_Basics.Models
             }
         }
 
-        public static void FilterPeople(string userInput)
+        public static List<Person> FilterPeople(string userInput)
         {
+            List<Person> filteredList = new List<Person>();
 
+            foreach (Person person in personList)
+            {
+                if (person.Name.Contains(userInput) || person.City.Contains(userInput))
+                {
+                    filteredList.Add(person);
+                }
+            }
+            return filteredList;
 
         }
     }

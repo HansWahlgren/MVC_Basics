@@ -17,6 +17,11 @@
         </table>
     </div>*@
 
+<form asp-action="index" asp-controller="People" method="post">
+    <input type="text" name="userInput" value="" />
+    <input type="submit" value="Filter" />
+</form>
+
 <div id="personTable">
     <table>
         @foreach (Person person in Model)
@@ -33,7 +38,7 @@
                 </td>
             </tr>
         }
-        </table>
+     </table>
 </div>
 
 <a asp-action="CreatePerson"> Create Person </a>
