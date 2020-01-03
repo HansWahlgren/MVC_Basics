@@ -1,5 +1,6 @@
 ﻿@*@model PersonViewModel*@
-@model List<Person>
+@using MVC_Basics.Models
+@model PersonViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -23,7 +24,13 @@
 </form>
 
 <div id="personTable">
-    <table>
+
+    @foreach (Person item in Model.)
+    {
+
+    }
+
+    @*<table>
         @foreach (Person person in Model)
         {
             <tr>
@@ -38,7 +45,15 @@
                 </td>
             </tr>
         }
-     </table>
+
+        @foreach (Person item in Model.)
+        {
+            <div>
+                @Html.Partial("_PeoplePartialView", item)
+            </div>
+        }
+
+     </table>*@
 </div>
 
 <a asp-action="CreatePerson"> Create Person </a>

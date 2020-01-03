@@ -12,8 +12,13 @@ namespace MVC_Basics.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-        //    return View(PersonViewModel.personList);
-            return View(Person.personList);
+            //    return View(PersonViewModel.personList);
+            //    return View(Person.personList);
+
+            var model = new Person();
+            return PartialView("_PeoplePartialView", model);
+
+            //return View();
         }
 
         [HttpPost]
@@ -25,7 +30,7 @@ namespace MVC_Basics.Controllers
             }
             else
             {
-                return View(Person.personList);
+                return View(PersonViewModel.personList);
             }
         }
 
@@ -40,7 +45,7 @@ namespace MVC_Basics.Controllers
         {
             if (ModelState.IsValid)
             {
-                Person.personList.Add(
+                PersonViewModel.personList.Add(
                     new Person()
                     {
                         Id = PersonSequencer.NextPersonId(),

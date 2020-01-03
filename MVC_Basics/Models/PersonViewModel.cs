@@ -5,7 +5,7 @@ namespace MVC_Basics.Models
 {
     public class PersonViewModel
     {
-    //    public static List<Person> personList = new List<Person>();
+        public static List<Person> personList = new List<Person>();
 
         [Required]
         public string Name { get; set; }
