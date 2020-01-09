@@ -13,7 +13,7 @@ namespace MVC_Basics.Models
         public string PhoneNumber { get; set; }
         public string City { get; set; }
 
-        //REMOVE FOR PERSON
+        //REMOVE FOR PERSON LIST
         //public static void RemovePerson(int id)
         //{
         //    for (int i = 0; i < personList.Count; i++)
@@ -38,7 +38,7 @@ namespace MVC_Basics.Models
             }
         }
 
-        //LIST FOR PERSON
+        //FILTER LIST FOR PERSON
         //public static List<Person> FilterPeople(string userInput)
         //{
         //    List<Person> filteredList = new List<Person>();

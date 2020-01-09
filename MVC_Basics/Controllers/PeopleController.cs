@@ -9,16 +9,32 @@ namespace MVC_Basics.Controllers
 {
     public class PeopleController : Controller
     {
+        //[HttpGet]
+        //public async Task<IActionResult> IndexAsync()
+        //{
+        //    //    return View(PersonViewModel.personList);
+        //    //    return View(Person.personList);
+        //    Person model = new Person();
+        //    //var test = await Html.PartialAsync("_AuthorPartial", model);
+        //    //return PartialView("_PeoplePartialView", model);
+
+        //    return View("Index", "_PeoplePartialView");
+
+        //    //return View();
+        //}
+
         [HttpGet]
         public IActionResult Index()
         {
             //    return View(PersonViewModel.personList);
             //    return View(Person.personList);
+            //Person model = new Person();
+            //var test = await Html.PartialAsync("_AuthorPartial", model);
+            //return PartialView("_PeoplePartialView", model);
 
-            var model = new Person();
-            return PartialView("_PeoplePartialView", model);
+            //return View("Index", "_PeoplePartialView");
 
-            //return View();
+            return View();
         }
 
         [HttpPost]
@@ -32,6 +48,13 @@ namespace MVC_Basics.Controllers
             {
                 return View(PersonViewModel.personList);
             }
+        }
+
+        [HttpGet]
+        public IActionResult GetPartialView()
+        {
+            Person model = new Person();
+            return PartialView("_PeoplePartialView", model);
         }
 
         [HttpGet]
@@ -50,7 +73,7 @@ namespace MVC_Basics.Controllers
                     {
                         Id = PersonSequencer.NextPersonId(),
                         Name = personViewModel.Name,
-                        PhoneNumber = personViewModel.Phonenumber,
+                        PhoneNumber = personViewModel.PhoneNumber,
                         City = personViewModel.City
                     });
 

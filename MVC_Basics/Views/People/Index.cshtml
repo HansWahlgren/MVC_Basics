@@ -1,22 +1,11 @@
-﻿@*@model PersonViewModel*@
-@using MVC_Basics.Models
-@model PersonViewModel
+﻿@using MVC_Basics.Models
+@*@model PersonViewModel*@
+@*@model  _PeoplePartialView*@
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>People</h1>
-
-@*<div>
-        <table>
-            @for (int i = 0; i < Model.personList.Count; i++)
-            {
-                <tr>
-                    <td>Name: @person.Name</td>
-                </tr>
-            }
-        </table>
-    </div>*@
 
 <form asp-action="index" asp-controller="People" method="post">
     <input type="text" name="userInput" value="" />
@@ -25,50 +14,42 @@
 
 <div id="personTable">
 
-    @foreach (Person item in Model.)
-    {
 
-    }
-
-    @*<table>
-        @foreach (Person person in Model)
+    @*@foreach (Person item in Model)
         {
-            <tr>
-                <td>Name: @person.Name,</td>
-                <td>Phone number: @person.PhoneNumber,</td>
-                <td>City: @person.City,</td>
-                <td>
-                    <form asp-action="RemovePerson" asp-controller="People" method="post">
-                        <input type="hidden" name="personId" value=@person.Id />
-                        <input type="submit" value="Remove" />
-                    </form>
-                </td>
-            </tr>
-        }
 
-        @foreach (Person item in Model.)
+        }*@
+    @*@Html.Partial(Model.Html.Value)*@
+    @*@Model.ViewData;*@
+    @*@Model.BodyContent;*@
+
+
+    @*Old table created from List
+    <table>
+           @foreach (Person person in Model)
+           {
+               <tr>
+                   <td>Name: @person.Name,</td>
+                   <td>Phone number: @person.PhoneNumber,</td>
+                   <td>City: @person.City,</td>
+                   <td>
+                       <form asp-action="RemovePerson" asp-controller="People" method="post">
+                           <input type="hidden" name="personId" value=@person.Id />
+                           <input type="submit" value="Remove" />
+                       </form>
+                   </td>
+               </tr>
+           }
+        </table>*@
+
+    @*@foreach (Person item in Model.)
         {
             <div>
                 @Html.Partial("_PeoplePartialView", item)
             </div>
-        }
+        }*@
 
-     </table>*@
 </div>
 
 <a asp-action="CreatePerson"> Create Person </a>
 
-@*<form asp-action="Index" asp-controller="People" method="post">
-    <label asp-for="Name"></label>
-    <input asp-for="Name" /><span asp-validation-for="Name"></span>
-
-    <label asp-for="Phonenumber"></label>
-    <input asp-for="Phonenumber" /><span asp-validation-for="Phonenumber"></span>
-
-    <label asp-for="City"></label>
-    <input asp-for="City" /><span asp-validation-for="City"></span>
-
-    <input type="submit" value="Add Person" />
-</form>*@
-
-@*Sort by string input*@
