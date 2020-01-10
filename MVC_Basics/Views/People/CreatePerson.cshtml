@@ -7,13 +7,16 @@
 
 <form asp-action="CreatePerson" asp-controller="People" method="post">
     <label asp-for="Name"></label>
-    <input asp-for="Name" /><span asp-validation-for="Name"></span>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
 
     <label asp-for="PhoneNumber"></label>
-    <input asp-for="PhoneNumber" /><span asp-validation-for="PhoneNumber"></span>
+    <input asp-for="PhoneNumber" />
+    <span asp-validation-for="PhoneNumber"></span>
 
     <label asp-for="City"></label>
-    <input asp-for="City" /><span asp-validation-for="City"></span>
+    <input asp-for="City" />
+    <span asp-validation-for="City"></span>
 
     <input type="submit" value="Add Person" />
 </form>

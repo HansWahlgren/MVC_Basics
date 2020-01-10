@@ -9,32 +9,12 @@ namespace MVC_Basics.Controllers
 {
     public class PeopleController : Controller
     {
-        //[HttpGet]
-        //public async Task<IActionResult> IndexAsync()
-        //{
-        //    //    return View(PersonViewModel.personList);
-        //    //    return View(Person.personList);
-        //    Person model = new Person();
-        //    //var test = await Html.PartialAsync("_AuthorPartial", model);
-        //    //return PartialView("_PeoplePartialView", model);
-
-        //    return View("Index", "_PeoplePartialView");
-
-        //    //return View();
-        //}
+        readonly PersonService _personService = new PersonService();
 
         [HttpGet]
         public IActionResult Index()
         {
-            //    return View(PersonViewModel.personList);
-            //    return View(Person.personList);
-            //Person model = new Person();
-            //var test = await Html.PartialAsync("_AuthorPartial", model);
-            //return PartialView("_PeoplePartialView", model);
-
-            //return View("Index", "_PeoplePartialView");
-
-            return View();
+            return View(_personService.All());
         }
 
         [HttpPost]
@@ -46,16 +26,16 @@ namespace MVC_Basics.Controllers
             }
             else
             {
-                return View(PersonViewModel.personList);
+                return View(_personService.All());
             }
         }
 
-        [HttpGet]
-        public IActionResult GetPartialView()
-        {
-            Person model = new Person();
-            return PartialView("_PeoplePartialView", model);
-        }
+        //[HttpGet]
+        //public IActionResult GetPartialView()
+        //{
+        //    Person model = new Person();
+        //    return PartialView("_PeoplePartialView", model);
+        //}
 
         [HttpGet]
         public IActionResult CreatePerson()
@@ -68,24 +48,17 @@ namespace MVC_Basics.Controllers
         {
             if (ModelState.IsValid)
             {
-                PersonViewModel.personList.Add(
-                    new Person()
-                    {
-                        Id = PersonSequencer.NextPersonId(),
-                        Name = personViewModel.Name,
-                        PhoneNumber = personViewModel.PhoneNumber,
-                        City = personViewModel.City
-                    });
-
+                _personService.Create(personViewModel.Name, personViewModel.PhoneNumber, personViewModel.City);
                 return RedirectToAction("Index");
             }
             return View(personViewModel);
         }
 
-        [HttpPost]
-        public IActionResult RemovePerson(int personId)
+        [HttpGet]
+        public IActionResult RemovePerson(int id)
         {
-            Person.RemovePerson(personId);
+            Person person = _personService.Find(id);
+            Person.RemovePerson(person);
             return RedirectToAction("Index");
         }
     }

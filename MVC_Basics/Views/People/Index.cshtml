@@ -1,6 +1,4 @@
-﻿@using MVC_Basics.Models
-@*@model PersonViewModel*@
-@*@model  _PeoplePartialView*@
+﻿@model List<Person>
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,42 +10,24 @@
     <input type="submit" value="Filter" />
 </form>
 
-<div id="personTable">
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h5>Name</h5>
+        </div>
+        <div class="col">
+            <h5>PhoneNumber</h5>
+        </div>
+        <div class="col">
+            <h5>City</h5>
+        </div>
+    </div>
+    <hr />
 
-
-    @*@foreach (Person item in Model)
-        {
-
-        }*@
-    @*@Html.Partial(Model.Html.Value)*@
-    @*@Model.ViewData;*@
-    @*@Model.BodyContent;*@
-
-
-    @*Old table created from List
-    <table>
-           @foreach (Person person in Model)
-           {
-               <tr>
-                   <td>Name: @person.Name,</td>
-                   <td>Phone number: @person.PhoneNumber,</td>
-                   <td>City: @person.City,</td>
-                   <td>
-                       <form asp-action="RemovePerson" asp-controller="People" method="post">
-                           <input type="hidden" name="personId" value=@person.Id />
-                           <input type="submit" value="Remove" />
-                       </form>
-                   </td>
-               </tr>
-           }
-        </table>*@
-
-    @*@foreach (Person item in Model.)
-        {
-            <div>
-                @Html.Partial("_PeoplePartialView", item)
-            </div>
-        }*@
+    @foreach (var item in Model)
+    {
+        <partial name="_PersonPartial" model="item" />
+    }
 
 </div>
 
