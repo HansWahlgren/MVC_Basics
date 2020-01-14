@@ -31,7 +31,7 @@ namespace MVC_Basics.Controllers
         }
 
         //[HttpGet]
-        //public IActionResult GetPartialView()
+        //public IActionResult PersonPartialView()
         //{
         //    Person model = new Person();
         //    return PartialView("_PeoplePartialView", model);
