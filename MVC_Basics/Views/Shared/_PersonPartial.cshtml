@@ -1,16 +1,21 @@
-﻿@model Person
+﻿@model List<Person>
 
-<div class="row">
-    <div class="col">
-        <p>@Model.Name</p>
+
+@foreach (var person in Model)
+{
+    <div class="row">
+        <div class="col">
+            <p>@person.Name</p>
+        </div>
+        <div class="col">
+            <p>@person.PhoneNumber</p>
+        </div>
+        <div class="col">
+            <p>@person.City</p>
+        </div>
+        <div class="col">
+            <a class="RemoveBtnPartial" asp-action="RemovePerson" asp-route-id="@person.Id" data.target="peoplePartial">Remove</a>
+        </div>
     </div>
-    <div class="col">
-        <p>@Model.PhoneNumber</p>
-    </div>
-    <div class="col">
-        <p>@Model.City</p>
-    </div>
-    <div class="col">
-        <a asp-action="RemovePerson" asp-route-id="@Model.Id">Remove</a>
-    </div>
-</div>
+}
+

@@ -14,9 +14,11 @@ namespace MVC_Basics.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(_personService.All());
+            //return View(_personService.All());
+            return View();
         }
 
+        //Wrong
         [HttpPost]
         public IActionResult Index(string userInput)
         {
@@ -30,19 +32,22 @@ namespace MVC_Basics.Controllers
             }
         }
 
-        //[HttpGet]
-        //public IActionResult PersonPartialView()
-        //{
-        //    Person model = new Person();
-        //    return PartialView("_PeoplePartialView", model);
-        //}
+        //Correct
+        [HttpGet]
+        public IActionResult PersonPartialView()
+        {
+            //Person model = new Person();
+            return PartialView("_PersonPartial", _personService.All());
+        }
 
+        //Correct
         [HttpGet]
         public IActionResult CreatePerson()
         {
-            return View();
+            return PartialView("_CreatePartial");
         }
 
+        //Wrong
         [HttpPost]
         public IActionResult CreatePerson(PersonViewModel personViewModel)
         {
@@ -54,12 +59,20 @@ namespace MVC_Basics.Controllers
             return View(personViewModel);
         }
 
+        //Wrong
         [HttpGet]
         public IActionResult RemovePerson(int id)
         {
             Person person = _personService.Find(id);
             Person.RemovePerson(person);
-            return RedirectToAction("Index");
+            return PartialView("_PersonPartial", _personService.All());
+            //return RedirectToAction("Index");
         }
+
+        //[HttpGet]
+        //public IActionResult TestRemovePerson(int id)
+        //{
+
+        //}
     }
 }

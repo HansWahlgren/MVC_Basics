@@ -27,12 +27,15 @@
     </div>
     <hr />
 
-    @foreach (var item in Model)
-    {
-        <partial name="_PersonPartial" model="item" />
-    }
+    <div id="peoplePartial"></div>
+
+    <div id="createPartial"></div>
+
+    <div>
+        <button id="CreateBtnPartial">Create Person</button>
+    </div>
 
 </div>
 
-<a asp-action="CreatePerson"> Create Person </a>
+@*<a id="aCreate" asp-action="CreatePerson" data.target="createPartial"> Create Person </a>*@
 
