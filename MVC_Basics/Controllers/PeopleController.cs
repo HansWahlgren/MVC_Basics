@@ -54,23 +54,21 @@ namespace MVC_Basics.Controllers
             if (ModelState.IsValid)
             {
                 _personService.Create(personViewModel.Name, personViewModel.PhoneNumber, personViewModel.City);
-                return RedirectToAction("Index");
             }
-            return View(personViewModel);
+            return PartialView("_PersonPartial", _personService.All());
         }
 
-        //Wrong
+        //Correct
         [HttpGet]
         public IActionResult RemovePerson(int id)
         {
             Person person = _personService.Find(id);
             Person.RemovePerson(person);
             return PartialView("_PersonPartial", _personService.All());
-            //return RedirectToAction("Index");
         }
 
         //[HttpGet]
-        //public IActionResult TestRemovePerson(int id)
+        //public IActionResult TestEditPerson(int id)
         //{
 
         //}

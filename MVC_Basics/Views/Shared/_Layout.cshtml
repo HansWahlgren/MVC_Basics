@@ -7,7 +7,6 @@
     <title>@ViewData["Title"] - MVC_Basics</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/StyleSheet.css" rel="stylesheet" />
-    @*<title>@ViewBag.Title</title>*@
 </head>
 <body>
     <header>
@@ -42,8 +41,9 @@
         <p>&copy;Philip Wahlgren @DateTime.Now.ToShortDateString()</p>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @*@RenderSection("Scripts", required: false)*@
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

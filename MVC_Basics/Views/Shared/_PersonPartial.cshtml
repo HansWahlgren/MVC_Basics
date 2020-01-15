@@ -14,8 +14,8 @@
             <p>@person.City</p>
         </div>
         <div class="col">
-            <a class="RemoveBtnPartial" asp-action="RemovePerson" asp-route-id="@person.Id" data.target="peoplePartial">Remove</a>
+            <a class="RemoveBtnPartial btn btn-danger" id="@person.Id">Remove</a>
         </div>
     </div>
 }
-
+<script>prepareRemove()</script>

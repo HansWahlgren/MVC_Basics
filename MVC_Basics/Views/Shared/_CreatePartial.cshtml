@@ -2,7 +2,7 @@
 
 <h1>CreatePerson</h1>
 
-<form asp-action="CreatePerson" asp-controller="People" method="post">
+<form id="ConfirmCreateForm" asp-action="CreatePerson" asp-controller="People" method="post">
     <label asp-for="Name"></label>
     <input asp-for="Name" />
     <span asp-validation-for="Name"></span>
@@ -15,5 +15,7 @@
     <input asp-for="City" />
     <span asp-validation-for="City"></span>
 
-    <input type="submit" value="Add Person" />
+    <input id="ConfirmCreateBtn" type="submit" value="Add Person" />
 </form>
+
+<script>prepareCreate()</script>
