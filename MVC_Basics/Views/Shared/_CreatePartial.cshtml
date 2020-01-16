@@ -1,8 +1,7 @@
 ﻿@model PersonViewModel
 
 <h1>CreatePerson</h1>
-
-<form id="ConfirmCreateForm" asp-action="CreatePerson" asp-controller="People" method="post">
+<form id="ConfirmCreateForm" onsubmit="confirmCreate(event)" asp-controller="People" asp-action="CreatePerson" data-target="peoplePartial" method="post">
     <label asp-for="Name"></label>
     <input asp-for="Name" />
     <span asp-validation-for="Name"></span>
@@ -18,4 +17,3 @@
     <input id="ConfirmCreateBtn" type="submit" value="Add Person" />
 </form>
 
-<script>prepareCreate()</script>

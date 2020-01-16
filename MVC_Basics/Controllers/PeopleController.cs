@@ -14,7 +14,6 @@ namespace MVC_Basics.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            //return View(_personService.All());
             return View();
         }
 
@@ -24,11 +23,11 @@ namespace MVC_Basics.Controllers
         {
             if (userInput != null)
             {
-                return View(Person.FilterPeople(userInput));
+                return PartialView("_PersonPartial", Person.FilterPeople(userInput));
             }
             else
             {
-                return View(_personService.All());
+                return PartialView("_PersonPartial", _personService.All());
             }
         }
 
@@ -47,7 +46,7 @@ namespace MVC_Basics.Controllers
             return PartialView("_CreatePartial");
         }
 
-        //Wrong
+        //Correct
         [HttpPost]
         public IActionResult CreatePerson(PersonViewModel personViewModel)
         {
