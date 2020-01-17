@@ -46,9 +46,9 @@ namespace MVC_Basics.Models
             return Person.personList;
         }
 
-        //bool Update(Person car)
-        //{
-
-        //}
+        bool Update(Person person)
+        {
+            return true;
+        }
     }
 }

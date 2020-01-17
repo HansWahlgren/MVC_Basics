@@ -61,3 +61,24 @@ function filterPeople(event) {
     });
 }
 
+
+//Get
+function formEditPerson(event) {
+    event.preventDefault(); var _this = event.target;
+
+    $.post(_this.action + "/", { userInput: _this[0].value },
+        function (res) {
+            $('#' + _this.dataset.target).html(res);
+        });
+}
+
+//Post
+function editPerson(event) {
+    event.preventDefault(); var _this = event.target;
+
+    $.post(_this.action + "/", { userInput: _this[0].value },
+        function (res) {
+            $('#' + _this.dataset.target).html(res);
+        });
+}
+

@@ -10,6 +10,6 @@ namespace MVC_Basics.Models
         Person Create(string name, string phoneNumber, string city);
         Person Find(int id);
         List<Person> All();
-        //bool Update(Person car);
+        bool Update(Person person);
     }
 }

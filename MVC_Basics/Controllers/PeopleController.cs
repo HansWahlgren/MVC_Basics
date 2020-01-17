@@ -17,7 +17,7 @@ namespace MVC_Basics.Controllers
             return View();
         }
 
-        //Wrong
+        //Correct
         [HttpPost]
         public IActionResult Index(string userInput)
         {
@@ -66,10 +66,17 @@ namespace MVC_Basics.Controllers
         }
 
         //Wrong
-        //[HttpGet]
-        //public IActionResult TestEditPerson(int id)
-        //{
+        [HttpGet]
+        public IActionResult FormEditPerson(int id)
+        {
+            return PartialView("_EditFormPartial", _personService.Find(id));
+        }
 
-        //}
+        //Wrong
+        [HttpPost]
+        public IActionResult EditPerson(PersonViewModel personViewModel)
+        {
+            return PartialView("_PersonPartial", _personService.All());
+        }
     }
 }
