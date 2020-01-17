@@ -51,7 +51,7 @@ namespace MVC_Basics.Controllers
         {
             if (ModelState.IsValid)
             {
-                _personService.Create(personViewModel.Name, personViewModel.PhoneNumber, personViewModel.City);
+                _personService.Create(personViewModel);
             }
             return PartialView("_PersonPartial", _personService.All());
         }
@@ -69,13 +69,18 @@ namespace MVC_Basics.Controllers
         [HttpGet]
         public IActionResult FormEditPerson(int id)
         {
-            return PartialView("_EditFormPartial", _personService.Find(id));
+            return PartialView("_EditPartial", _personService.Find(id));
+            //return PartialView("_EditPartial");
         }
 
         //Wrong
         [HttpPost]
         public IActionResult EditPerson(PersonViewModel personViewModel)
         {
+            if (ModelState.IsValid)
+            {
+                _personService.Update(personViewModel);
+            }
             return PartialView("_PersonPartial", _personService.All());
         }
     }

@@ -3,7 +3,7 @@
 
 @foreach (var person in Model)
 {
-    <div class="row" id="edit @person.Id">
+    <div id="@("editform" + @person.Id)" class="row">
         <div class="col">
             <p>@person.Name</p>
         </div>
@@ -14,7 +14,7 @@
             <p>@person.City</p>
         </div>
         <div class="col">
-            <a class="EditBtnPartial btn btn-warning" id="@person.Id" onclick="formEditPerson(event)" asp-controller="People" asp-action="FormEditPerson" data-target="edit @person.Id">Edit</a>
+            <a class="EditBtnPartial btn btn-warning" onclick ="formEditPerson(event, @person.Id)" asp-controller="People" asp-action="FormEditPerson" data-target="@("editform" + @person.Id)">Edit</a>
         </div>
         <div class="col">
             <a class="RemoveBtnPartial btn btn-danger" id="@person.Id">Remove</a>

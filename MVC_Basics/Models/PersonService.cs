@@ -17,23 +17,23 @@ namespace MVC_Basics.Models
         }
 
 
-        public Person Create(string name, string phoneNumber, string city)
+        public Person Create(PersonViewModel person)
         {
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(phoneNumber) || string.IsNullOrWhiteSpace(city))
+            if (string.IsNullOrWhiteSpace(person.Name) || string.IsNullOrWhiteSpace(person.PhoneNumber) || string.IsNullOrWhiteSpace(person.City))
             {
                 return null;
             }
 
-            Person person = new Person()
+            Person newPerson = new Person()
             {
                 Id = PersonSequencer.NextPersonId(),
-                Name = name,
-                PhoneNumber = phoneNumber,
-                City = city
+                Name = person.Name,
+                PhoneNumber = person.PhoneNumber,
+                City = person.City
             };
 
-            Person.personList.Add(person);
-            return person;
+            Person.personList.Add(newPerson);
+            return newPerson;
         }
 
         public Person Find(int id)
@@ -46,7 +46,7 @@ namespace MVC_Basics.Models
             return Person.personList;
         }
 
-        bool Update(Person person)
+        public bool Update(PersonViewModel person)
         {
             return true;
         }

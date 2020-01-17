@@ -7,9 +7,9 @@ namespace MVC_Basics.Models
 {
     interface IPersonService
     {
-        Person Create(string name, string phoneNumber, string city);
+        Person Create(PersonViewModel person);
         Person Find(int id);
         List<Person> All();
-        bool Update(Person person);
+        bool Update(PersonViewModel person);
     }
 }

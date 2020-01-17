@@ -63,20 +63,30 @@ function filterPeople(event) {
 
 
 //Get
-function formEditPerson(event) {
+function formEditPerson(event, id) {
     event.preventDefault(); var _this = event.target;
 
-    $.post(_this.action + "/", { userInput: _this[0].value },
+    $.get(_this.pathname + "/" + id,
         function (res) {
+            console.log(res);
             $('#' + _this.dataset.target).html(res);
         });
+    //Add event listener on EditBtnPartial
+    //document.getElementById("ConfirmEditBtn").addEventListener("click", editPerson);
+    
 }
 
 //Post
 function editPerson(event) {
-    event.preventDefault(); var _this = event.target;
+    event.preventDefault();
+    var _this = event.target;
 
-    $.post(_this.action + "/", { userInput: _this[0].value },
+    $.post(_this.action + "/",
+        {
+            Name: _this[0].value,
+            PhoneNumber: _this[1].value,
+            City: _this[2].value
+        },
         function (res) {
             $('#' + _this.dataset.target).html(res);
         });

@@ -1,0 +1,17 @@
+﻿@model PersonViewModel
+
+<form id="ConfirmEditForm" onsubmit="editPerson(event)" asp-controller="People" asp-action="EditPerson" data-target="peoplePartial" method="post">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <label asp-for="PhoneNumber"></label>
+    <input asp-for="PhoneNumber" />
+    <span asp-validation-for="PhoneNumber"></span>
+
+    <label asp-for="City"></label>
+    <input asp-for="City" />
+    <span asp-validation-for="City"></span>
+
+    <input id="ConfirmEditBtn" type="submit" value="Edit Person" />
+</form>
