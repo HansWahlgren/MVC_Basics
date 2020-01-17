@@ -4,37 +4,36 @@
 }
 
 <h1>People</h1>
-    <form id="filterPeopleForm" onsubmit="filterPeople(event)" asp-controller="People" asp-action="index" data-target="peoplePartial" method="post">
-        <input type="text" name="userInput" value="" />
-        <input type="submit" value="Filter" />
-    </form>
+<form id="filterPeopleForm" onsubmit="filterPeople(event)" asp-controller="People" asp-action="index" data-target="peoplePartial" method="post">
+    <input type="text" name="userInput" value="" />
+    <input type="submit" value="Filter" />
+</form>
 
-    <div class="col-12">
-        <div class="row">
-            <div class="col">
-                <h5>Name</h5>
-            </div>
-            <div class="col">
-                <h5>PhoneNumber</h5>
-            </div>
-            <div class="col">
-                <h5>City</h5>
-            </div>
-            <div class="col">
-                <h5>Remove</h5>
-            </div>
+<div class="col-12">
+    <div class="row">
+        <div class="col">
+            <h5>Name</h5>
         </div>
-        <hr />
-
-        <div id="peoplePartial"></div>
-
-        <div id="createPartial"></div>
-
-        <div>
-            <a id="CreateBtnPartial" asp-controller="People" asp-action="CreatePerson" data-target="createPartial" class="btn btn-light">Create Person</a>
-            @*<a onclick="PartialLink(event)" asp-controller="People" asp-action="CreatePerson" data-target="createPartial" class="btn btn-light">Create Person</a>*@
-            @*asp-route-id="@randomstuff.Id"*@
-            @*<a id="CreateBtnPartial" class="btn btn-light">Create Person</a>*@
+        <div class="col">
+            <h5>PhoneNumber</h5>
         </div>
-
+        <div class="col">
+            <h5>City</h5>
+        </div>
+        <div class="col">
+            <h5>Remove</h5>
+        </div>
     </div>
+    <hr />
+
+    <div id="peoplePartial"></div>
+
+    <div id="createPartial"></div>
+
+    <div>
+        <a id="CreateBtnPartial" asp-controller="People" asp-action="CreatePerson" data-target="createPartial" class="btn btn-light">Create Person</a>
+        @*<a onclick="PartialLink(event)" asp-controller="People" asp-action="CreatePerson" data-target="createPartial" class="btn btn-light">Create Person</a>*@
+        @*asp-route-id="@randomstuff.Id"*@
+        @*<a id="CreateBtnPartial" class="btn btn-light">Create Person</a>*@
+    </div>
+</div>

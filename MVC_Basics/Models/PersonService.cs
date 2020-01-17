@@ -9,9 +9,11 @@ namespace MVC_Basics.Models
     {
         static PersonService()
         {
-            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Max", PhoneNumber = "074873638", City = "Kalmar" });
+            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Max", PhoneNumber = "074873638", City = "Kalmardog" });
             Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Phil", PhoneNumber = "073284743", City = "Växjö" });
-            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Ivar", PhoneNumber = "070214238", City = "Götet" });
+            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Ivardog", PhoneNumber = "070214238", City = "Götet" });
+            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Kurt", PhoneNumber = "52353523255", City = "Stockholm" });
+            Person.personList.Add(new Person() { Id = PersonSequencer.NextPersonId(), Name = "Bert", PhoneNumber = "65765774", City = "dogtown" });
         }
 
 

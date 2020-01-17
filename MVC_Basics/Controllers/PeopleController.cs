@@ -35,7 +35,6 @@ namespace MVC_Basics.Controllers
         [HttpGet]
         public IActionResult PersonPartialView()
         {
-            //Person model = new Person();
             return PartialView("_PersonPartial", _personService.All());
         }
 
@@ -66,6 +65,7 @@ namespace MVC_Basics.Controllers
             return PartialView("_PersonPartial", _personService.All());
         }
 
+        //Wrong
         //[HttpGet]
         //public IActionResult TestEditPerson(int id)
         //{

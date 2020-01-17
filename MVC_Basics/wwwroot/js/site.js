@@ -12,14 +12,12 @@ $(document).ready(function () {
     $("#CreateBtnPartial").click(function (create) {
         create.preventDefault(); var _this = $(this);
         $.get(_this.attr("href"), function (res) {
-            //console.log("Data: " + data + "\nStatus: " + status);
             $('#' + _this.data("target")).html(res);
         });
     });
 });
 
 function confirmCreate(event) {
-    console.log(event);
     event.preventDefault(); 
     var _this = event.target;
 
@@ -49,19 +47,17 @@ function prepareRemove() {
 
 function remove() {
     $.get("People/RemovePerson/" + event.srcElement.id, function (data, status) {
-        //console.log("Data: " + data + "\nStatus: " + status);
         $("#peoplePartial").html(data);
     });
 }
 
 
 function filterPeople(event) {
+    event.preventDefault(); var _this = event.target;
 
-
-    //create.preventDefault(); var _this = $(this);
-    //$.get(_this.attr("href"), function (res) {
-    //    //console.log("Data: " + data + "\nStatus: " + status);
-    //    $('#' + _this.data("target")).html(res);
-    //});
-});
+    $.post(_this.action + "/", { userInput: _this[0].value },
+        function (res) {
+            $('#' + _this.dataset.target).html(res);
+    });
+}
 
