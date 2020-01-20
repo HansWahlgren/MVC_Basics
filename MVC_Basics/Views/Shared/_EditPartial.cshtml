@@ -1,6 +1,6 @@
-﻿@model PersonViewModel
+﻿@model Person
 
-<form id="ConfirmEditForm" onsubmit="editPerson(event)" asp-controller="People" asp-action="EditPerson" data-target="peoplePartial" method="post">
+<form id="ConfirmEditForm" onsubmit="jseditPerson(event)" asp-route-id="@Model.Id" asp-controller="People" asp-action="EditPerson" data-target="peoplePartial" method="post">
     <label asp-for="Name"></label>
     <input asp-for="Name" />
     <span asp-validation-for="Name"></span>
@@ -13,5 +13,5 @@
     <input asp-for="City" />
     <span asp-validation-for="City"></span>
 
-    <input id="ConfirmEditBtn" type="submit" value="Edit Person" />
+    <input class="ConfirmEditBtn" type="submit" value="Edit Person" />
 </form>

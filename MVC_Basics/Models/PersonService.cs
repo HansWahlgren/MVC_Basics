@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Basics.Models
 {
-    public class PersonService
+    public class PersonService : IPersonService
     {
         static PersonService()
         {
@@ -46,9 +46,20 @@ namespace MVC_Basics.Models
             return Person.personList;
         }
 
-        public bool Update(PersonViewModel person)
+        public Person Update(PersonViewModel person, int id)
         {
-            return true;
+            if (string.IsNullOrWhiteSpace(person.Name) || string.IsNullOrWhiteSpace(person.PhoneNumber) || string.IsNullOrWhiteSpace(person.City))
+            {
+                return null;
+            }
+
+            Person oldPerson = Find(id);
+
+            oldPerson.Name = person.Name;
+            oldPerson.PhoneNumber = person.PhoneNumber;
+            oldPerson.City = person.City;
+
+            return oldPerson;
         }
     }
 }

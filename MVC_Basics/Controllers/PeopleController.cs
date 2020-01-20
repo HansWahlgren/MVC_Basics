@@ -65,21 +65,22 @@ namespace MVC_Basics.Controllers
             return PartialView("_PersonPartial", _personService.All());
         }
 
-        //Wrong
+        //Correct
         [HttpGet]
         public IActionResult FormEditPerson(int id)
         {
-            return PartialView("_EditPartial", _personService.Find(id));
-            //return PartialView("_EditPartial");
+            Person person = _personService.Find(id);
+
+            return PartialView("_EditPartial", person);
         }
 
-        //Wrong
+        //Correct
         [HttpPost]
-        public IActionResult EditPerson(PersonViewModel personViewModel)
+        public IActionResult EditPerson(PersonViewModel personViewModel, int id)
         {
             if (ModelState.IsValid)
             {
-                _personService.Update(personViewModel);
+                _personService.Update(personViewModel, id);
             }
             return PartialView("_PersonPartial", _personService.All());
         }

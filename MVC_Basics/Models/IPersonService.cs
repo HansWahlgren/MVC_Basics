@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace MVC_Basics.Models
 {
-    interface IPersonService
+    public interface IPersonService
     {
         Person Create(PersonViewModel person);
         Person Find(int id);
         List<Person> All();
-        bool Update(PersonViewModel person);
+        Person Update(PersonViewModel person, int id);
     }
 }

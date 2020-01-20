@@ -1,5 +1,14 @@
 ﻿"use strict";
 
+//With function call
+//function indexLoad() {
+//    $.get("People/PersonPartialView", function (data, status) {
+//        //console.log("Data: " + data + "\nStatus: " + status);
+//        $("#peoplePartial").html(data);
+//    });
+//};
+
+//With document ready
 $(document).ready(function () {
     $.get("People/PersonPartialView", function (data, status) {
         //console.log("Data: " + data + "\nStatus: " + status);
@@ -7,7 +16,6 @@ $(document).ready(function () {
     });
 });
 
-//with "this"
 $(document).ready(function () {
     $("#CreateBtnPartial").click(function (create) {
         create.preventDefault(); var _this = $(this);
@@ -63,21 +71,17 @@ function filterPeople(event) {
 
 
 //Get
-function formEditPerson(event, id) {
+function jsFormEditPerson(event, id) {
     event.preventDefault(); var _this = event.target;
 
     $.get(_this.pathname + "/" + id,
-        function (res) {
-            console.log(res);
-            $('#' + _this.dataset.target).html(res);
-        });
-    //Add event listener on EditBtnPartial
-    //document.getElementById("ConfirmEditBtn").addEventListener("click", editPerson);
-    
+    function (res) {
+        $('#' + _this.dataset.target).html(res);
+    });
 }
 
 //Post
-function editPerson(event) {
+function jseditPerson(event) {
     event.preventDefault();
     var _this = event.target;
 
